@@ -195,7 +195,7 @@ export default function AsignaturasEditModal({
             title="Seriación"
             name="seriacion"
             value={rowItem.seriacion || ''}
-            options={[{ value: '', label: '' }, ...(asignaturasList || [])]}
+            options={[...(asignaturasList || [])]}
             onchange={handleOnChange}
             textValue
           />

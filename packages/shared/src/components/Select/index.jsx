@@ -40,6 +40,7 @@ export default function BasicSelect({
           disabled={disabled}
           required={required}
           error={!!errorMessage}
+          shrink={option !== ''}
         >
           {title}
         </InputLabel>
@@ -57,18 +58,24 @@ export default function BasicSelect({
           disabled={disabled}
           displayEmpty
         >
-          <MenuItem value="" disabled={!multiple}>
+          <MenuItem
+            value=""
+            disabled={false}
+            sx={{
+              height: 35,
+              padding: '0 16px',
+            }}
+          >
             <em />
           </MenuItem>
-          {options
-            && options.map((opcion) => (
-              <MenuItem
-                key={opcion.id}
-                value={textValue ? opcion.nombre : opcion.id}
-              >
-                {opcion.nombre}
-              </MenuItem>
-            ))}
+          {options && options.map((opcion) => (
+            <MenuItem
+              key={opcion.id}
+              value={textValue ? opcion.nombre : opcion.id}
+            >
+              {opcion.nombre}
+            </MenuItem>
+          ))}
         </Select>
         <FormHelperText error>{errorMessage}</FormHelperText>
       </FormControl>
@@ -83,9 +90,9 @@ BasicSelect.defaultProps = {
   disabled: false,
   textValue: false,
   errorMessage: '',
-  onchange: () => { },
-  onblur: () => { },
-  onfocus: () => { },
+  onchange: () => {},
+  onblur: () => {},
+  onfocus: () => {},
 };
 
 BasicSelect.propTypes = {

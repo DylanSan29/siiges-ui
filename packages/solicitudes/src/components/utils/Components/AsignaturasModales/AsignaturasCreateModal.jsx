@@ -171,7 +171,7 @@ export default function AsignaturasCreateModal({ open, hideModal, title }) {
             title="Seriación"
             name="seriacion"
             value=""
-            options={[{ value: '', label: '' }, ...(asignaturasList || [])]}
+            options={[...(asignaturasList || [])]}
             onchange={handleOnChange}
             textValue
           />
